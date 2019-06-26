@@ -48,7 +48,7 @@ public class ToolFunctions {
         BlockState state = world.getBlockState(pos);
 
         boolean isEffective = effectiveOn.contains(state.getBlock()) || effectiveMaterials.contains(state.getMaterial());
-        boolean witherImmune = BlockTags.field_219755_X.contains(state.getBlock());
+        boolean witherImmune = BlockTags.WITHER_IMMUNE.contains(state.getBlock());
 
         if (isEffective && !witherImmune) {
             world.destroyBlock(pos, false);
@@ -56,9 +56,8 @@ public class ToolFunctions {
         }
     }
 
-    /** Copy-pasted from "Item.func_219968_a", which is unnamed and, for some reason, protected static, which makes it
-     * unusable in my own static helper methods.*/
-    public static RayTraceResult calcRayTrace(World world, PlayerEntity player, RayTraceContext.FluidMode fluidMode) {
+    /** Copy-pasted from "Item.rayTrace" which is protected static, making it unusable in my own static helper methods.*/
+    public static RayTraceResult calcRayTrace(World worldIn, PlayerEntity player, RayTraceContext.FluidMode fluidMode) {
         float f = player.rotationPitch;
         float f1 = player.rotationYaw;
         Vec3d vec3d = player.getEyePosition(1.0F);
@@ -70,6 +69,6 @@ public class ToolFunctions {
         float f7 = f2 * f4;
         double d0 = player.getAttribute(PlayerEntity.REACH_DISTANCE).getValue();;
         Vec3d vec3d1 = vec3d.add((double)f6 * d0, (double)f5 * d0, (double)f7 * d0);
-        return world.func_217299_a(new RayTraceContext(vec3d, vec3d1, RayTraceContext.BlockMode.OUTLINE, fluidMode, player));
+        return worldIn.rayTraceBlocks(new RayTraceContext(vec3d, vec3d1, RayTraceContext.BlockMode.OUTLINE, fluidMode, player));
     }
 }
