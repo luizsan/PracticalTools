@@ -1,4 +1,4 @@
-package com.alexanderstrada.practicalitems;
+package com.alexanderstrada.practicaltools;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 

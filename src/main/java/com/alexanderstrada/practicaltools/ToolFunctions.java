@@ -1,4 +1,4 @@
-package com.alexanderstrada.practicalitems;
+package com.alexanderstrada.practicaltools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

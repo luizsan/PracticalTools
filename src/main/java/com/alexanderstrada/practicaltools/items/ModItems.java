@@ -1,4 +1,4 @@
-package com.alexanderstrada.practicalitems.items;
+package com.alexanderstrada.practicaltools.items;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
