@@ -8,6 +8,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
@@ -103,6 +105,9 @@ public class GreataxeItem extends AxeItem {
             // Break the tree. Spread across several ticks because doing all at once causes the game to stutter, even for small trees.
             MinecraftForge.EVENT_BUS.register(new Object() {
 
+                int fortuneLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, player.getHeldItemMainhand());
+                int silkLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player.getHeldItemMainhand());
+
                 int delay = LOG_BREAK_DELAY;
                 int i = 0;
 
@@ -112,7 +117,7 @@ public class GreataxeItem extends AxeItem {
                     delay = LOG_BREAK_DELAY;
                     if (i < logs.size()) {
                         BlockPos log = logs.get(i);
-                        ToolFunctions.attemptBreak(world, log, player, EFFECTIVE_ON, EFFECTIVE_MATERIALS);
+                        ToolFunctions.attemptBreak(world, log, player, EFFECTIVE_ON, EFFECTIVE_MATERIALS, fortuneLevel, silkLevel);
                         i++;
                     }
                     else {

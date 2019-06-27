@@ -3,6 +3,8 @@ package com.alexanderstrada.practicalitems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
@@ -25,6 +27,9 @@ public class ToolFunctions {
             BlockRayTraceResult blockTrace = (BlockRayTraceResult) trace;
             Direction face = blockTrace.getFace();
 
+            int fortuneLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, player.getHeldItemMainhand());
+            int silkLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player.getHeldItemMainhand());
+
             for (int a = -1; a <= 1; a++) {
                 for (int b = -1; b <= 1; b++) {
                     if (a == 0 && b == 0) continue;
@@ -35,7 +40,7 @@ public class ToolFunctions {
                     if (face == Direction.NORTH || face == Direction.SOUTH) target = pos.add(a, b, 0);
                     if (face == Direction.EAST  || face == Direction.WEST)  target = pos.add(0, a, b);
 
-                    attemptBreak(world, target, player, effectiveOn, effectiveMaterials);
+                    attemptBreak(world, target, player, effectiveOn, effectiveMaterials, fortuneLevel, silkLevel);
                 }
             }
         }
@@ -44,7 +49,7 @@ public class ToolFunctions {
     /** To break, the given block must be contained in effectiveOn, or its material contained in effectiveMaterials, and
      * the block cannot have the wither-immune tag. Wither-immune seems to be the only comprehensive list of "blocks you
      * shouldn't be able to break" in the game. */
-    public static void attemptBreak(World world, BlockPos pos, PlayerEntity player, Set<Block> effectiveOn, Set<Material> effectiveMaterials) {
+    public static void attemptBreak(World world, BlockPos pos, PlayerEntity player, Set<Block> effectiveOn, Set<Material> effectiveMaterials, int fortuneLevel, int silkLevel) {
         BlockState state = world.getBlockState(pos);
 
         boolean isEffective = effectiveOn.contains(state.getBlock()) || effectiveMaterials.contains(state.getMaterial());
@@ -53,6 +58,11 @@ public class ToolFunctions {
         if (isEffective && !witherImmune) {
             world.destroyBlock(pos, false);
             Block.spawnDrops(state, world, pos, null, player, player.getHeldItemMainhand());
+
+            int exp = state.getExpDrop(world, pos, fortuneLevel, silkLevel);
+            if (exp > 0) {
+                state.getBlock().dropXpOnBlockBreak(world, pos, exp);
+            }
         }
     }
 
