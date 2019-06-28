@@ -1,6 +1,6 @@
-package com.alexanderstrada.practicalitems;
+package com.alexanderstrada.practicaltools;
 
-import com.alexanderstrada.practicalitems.items.ModItems;
+import com.alexanderstrada.practicaltools.items.ModItems;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;

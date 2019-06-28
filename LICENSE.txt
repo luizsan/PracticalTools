@@ -1,3 +1,6 @@
+NOTE: This license only covers the source code in this project (the "Software"). Any included images, models, sounds, or
+other non-source-code resources are not covered under this license, and all rights to such media are reserved.
+
 MIT License
 
 Copyright (c) 2019 Alexander Strada

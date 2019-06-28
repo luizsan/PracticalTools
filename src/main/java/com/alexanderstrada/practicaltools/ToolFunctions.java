@@ -1,4 +1,4 @@
-package com.alexanderstrada.practicalitems;
+package com.alexanderstrada.practicaltools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -52,10 +52,11 @@ public class ToolFunctions {
     public static void attemptBreak(World world, BlockPos pos, PlayerEntity player, Set<Block> effectiveOn, Set<Material> effectiveMaterials, int fortuneLevel, int silkLevel) {
         BlockState state = world.getBlockState(pos);
 
+        boolean canHarvestBlock = player.getHeldItemMainhand().canHarvestBlock(state);
         boolean isEffective = effectiveOn.contains(state.getBlock()) || effectiveMaterials.contains(state.getMaterial());
         boolean witherImmune = BlockTags.WITHER_IMMUNE.contains(state.getBlock());
 
-        if (isEffective && !witherImmune) {
+        if (canHarvestBlock && isEffective && !witherImmune) {
             world.destroyBlock(pos, false);
             Block.spawnDrops(state, world, pos, null, player, player.getHeldItemMainhand());
 

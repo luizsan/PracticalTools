@@ -1,7 +1,7 @@
-package com.alexanderstrada.practicalitems.items;
+package com.alexanderstrada.practicaltools.items;
 
-import com.alexanderstrada.practicalitems.ModConfig;
-import com.alexanderstrada.practicalitems.ToolFunctions;
+import com.alexanderstrada.practicaltools.ModConfig;
+import com.alexanderstrada.practicaltools.ToolFunctions;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
