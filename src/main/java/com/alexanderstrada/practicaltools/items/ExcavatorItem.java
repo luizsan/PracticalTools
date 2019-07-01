@@ -43,7 +43,7 @@ public class ExcavatorItem extends ShovelItem {
         stack.attemptDamageItem(ModConfig.COMMON.excavatorDuraLossMulti.get()-1, ToolFunctions.random, null);
 
         if (entityLiving instanceof PlayerEntity)
-            ToolFunctions.attemptBreakNeighbors(world, pos, (PlayerEntity) entityLiving, EFFECTIVE_ON, EFFECTIVE_MATERIALS);
+            ToolFunctions.attemptBreakNeighbors(world, pos, (PlayerEntity) entityLiving, EFFECTIVE_ON, EFFECTIVE_MATERIALS, false);
 
         return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
     }

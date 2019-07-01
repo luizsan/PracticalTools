@@ -56,7 +56,7 @@ public class GreataxeItem extends AxeItem {
             PlayerEntity player = (PlayerEntity) entityLiving;
 
             if (!attemptFellTree(world, pos, player)) {
-                ToolFunctions.attemptBreakNeighbors(world, pos, player, EFFECTIVE_ON, EFFECTIVE_MATERIALS);
+                ToolFunctions.attemptBreakNeighbors(world, pos, player, EFFECTIVE_ON, EFFECTIVE_MATERIALS, false);
             }
         }
 
@@ -122,7 +122,7 @@ public class GreataxeItem extends AxeItem {
                     delay = LOG_BREAK_DELAY;
                     if (i < logs.size()) {
                         BlockPos log = logs.get(i);
-                        ToolFunctions.attemptBreak(world, log, player, EFFECTIVE_ON, EFFECTIVE_MATERIALS, fortuneLevel, silkLevel);
+                        ToolFunctions.attemptBreak(world, log, player, EFFECTIVE_ON, EFFECTIVE_MATERIALS, fortuneLevel, silkLevel, false);
                         i++;
                     }
                     else {

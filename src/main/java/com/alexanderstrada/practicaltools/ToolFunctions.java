@@ -24,7 +24,12 @@ public class ToolFunctions {
     public static final Random random = new Random();
 
     /** Attempt to break blocks around the given pos in a 3x3x1 square relative to the targeted face.*/
-    public static void attemptBreakNeighbors(World world, BlockPos pos, PlayerEntity player, Set<Block> effectiveOn, Set<Material> effectiveMaterials) {
+    public static void attemptBreakNeighbors(World world,
+                                             BlockPos pos,
+                                             PlayerEntity player,
+                                             Set<Block> effectiveOn,
+                                             Set<Material> effectiveMaterials,
+                                             boolean checkHarvestLevel) {
 
         RayTraceResult trace = calcRayTrace(world, player, RayTraceContext.FluidMode.ANY);
 
@@ -45,7 +50,7 @@ public class ToolFunctions {
                     if (face == Direction.NORTH || face == Direction.SOUTH) target = pos.add(a, b, 0);
                     if (face == Direction.EAST  || face == Direction.WEST)  target = pos.add(0, a, b);
 
-                    attemptBreak(world, target, player, effectiveOn, effectiveMaterials, fortuneLevel, silkLevel);
+                    attemptBreak(world, target, player, effectiveOn, effectiveMaterials, fortuneLevel, silkLevel, checkHarvestLevel);
                 }
             }
         }
@@ -54,14 +59,21 @@ public class ToolFunctions {
     /** To break, the given block must be contained in effectiveOn, or its material contained in effectiveMaterials, and
      * the block cannot have the wither-immune tag. Wither-immune seems to be the only comprehensive list of "blocks you
      * shouldn't be able to break" in the game. */
-    public static void attemptBreak(World world, BlockPos pos, PlayerEntity player, Set<Block> effectiveOn, Set<Material> effectiveMaterials, int fortuneLevel, int silkLevel) {
+    public static void attemptBreak(World world,
+                                    BlockPos pos,
+                                    PlayerEntity player,
+                                    Set<Block> effectiveOn,
+                                    Set<Material> effectiveMaterials,
+                                    int fortuneLevel,
+                                    int silkLevel,
+                                    boolean checkHarvestLevel) {
         BlockState state = world.getBlockState(pos);
 
-        boolean canHarvestBlock = player.getHeldItemMainhand().canHarvestBlock(state);
+        boolean validHarvest = !checkHarvestLevel || player.getHeldItemMainhand().canHarvestBlock(state);
         boolean isEffective = effectiveOn.contains(state.getBlock()) || effectiveMaterials.contains(state.getMaterial());
         boolean witherImmune = BlockTags.WITHER_IMMUNE.contains(state.getBlock());
 
-        if (canHarvestBlock && isEffective && !witherImmune) {
+        if (validHarvest && isEffective && !witherImmune) {
             world.destroyBlock(pos, false);
             Block.spawnDrops(state, world, pos, null, player, player.getHeldItemMainhand());
 

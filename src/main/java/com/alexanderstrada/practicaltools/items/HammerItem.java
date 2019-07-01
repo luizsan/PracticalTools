@@ -43,7 +43,7 @@ public class HammerItem extends PickaxeItem {
         stack.attemptDamageItem(ModConfig.COMMON.hammerDuraLossMulti.get()-1, ToolFunctions.random, null);
 
         if (entityLiving instanceof PlayerEntity)
-            ToolFunctions.attemptBreakNeighbors(world, pos, (PlayerEntity) entityLiving, EFFECTIVE_ON, EFFECTIVE_MATERIALS);
+            ToolFunctions.attemptBreakNeighbors(world, pos, (PlayerEntity) entityLiving, EFFECTIVE_ON, EFFECTIVE_MATERIALS, true);
 
         return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
     }
