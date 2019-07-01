@@ -1,3 +1,8 @@
+// Copyright (c) 2019 Alexander Strada - MIT License (This header, with links, must not be removed)
+//     https://github.com/astradamus/PracticalTools
+//     https://curseforge.com/minecraft/mc-mods/practical-tools
+//     https://twitch.tv/neurodr0me
+
 package com.alexanderstrada.practicaltools.items;
 
 import net.minecraft.block.Blocks;
