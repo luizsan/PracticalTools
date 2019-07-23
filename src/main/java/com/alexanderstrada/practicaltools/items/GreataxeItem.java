@@ -87,7 +87,7 @@ public class GreataxeItem extends AxeItem {
             if (BlockTags.LEAVES.contains(block)) {
                 leaves++;
             }
-            else if (BlockTags.LOGS.contains(block)) {
+            else if (logs.size() == 0 || BlockTags.LOGS.contains(block)) {
                 logs.add(candidate);
 
                 // We found a log, check for neighboring logs
