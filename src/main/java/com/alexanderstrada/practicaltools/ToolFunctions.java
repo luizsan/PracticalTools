@@ -32,11 +32,7 @@ public class ToolFunctions {
                                              Set<Material> effectiveMaterials,
                                              boolean checkHarvestLevel) {
 
-        // Forge for 1.14.2 calls onBlockDestroyed *after* changing the block to air, instead of before like previous versions.
-        // Consequently, we need to change that air back to a solid block if we are going to raytrace against it.
-        world.setBlockState(pos, Blocks.GLASS.getDefaultState());
         RayTraceResult trace = calcRayTrace(world, player, RayTraceContext.FluidMode.ANY);
-        world.setBlockState(pos, Blocks.AIR.getDefaultState());
 
         if (trace.getType() == RayTraceResult.Type.BLOCK) {
             BlockRayTraceResult blockTrace = (BlockRayTraceResult) trace;
