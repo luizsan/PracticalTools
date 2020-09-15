@@ -1,4 +1,4 @@
-// Copyright (c) 2019 Alexander Strada - MIT License (This header, with links, must not be removed)
+// Copyright (c) 2020 Alexander Strada - MIT License (This header, with links, must not be removed)
 //     https://github.com/astradamus/PracticalTools
 //     https://curseforge.com/minecraft/mc-mods/practical-tools
 //     https://twitch.tv/neurodr0me
@@ -6,7 +6,7 @@
 package com.alexanderstrada.practicaltools.items;
 
 import com.alexanderstrada.practicaltools.ModConfig;
-import com.alexanderstrada.practicaltools.ToolFunctions;
+import com.alexanderstrada.practicaltools.AreaBreak;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
@@ -49,13 +49,13 @@ public class GreataxeItem extends AxeItem {
 
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        stack.attemptDamageItem(ModConfig.COMMON.greataxeDuraLossMulti.get()-1, ToolFunctions.random, null);
+        stack.attemptDamageItem(ModConfig.COMMON.greataxeDuraLossMulti.get()-1, ModConfig.random, null);
 
         if (entityLiving instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entityLiving;
 
             if (!attemptFellTree(world, pos, player)) {
-                ToolFunctions.attemptBreakNeighbors(world, pos, player, EFFECTIVE_ON, EFFECTIVE_MATERIALS, false);
+                AreaBreak.areaAttempt(world, pos, player, EFFECTIVE_ON, EFFECTIVE_MATERIALS, false);
             }
         }
 
@@ -121,7 +121,7 @@ public class GreataxeItem extends AxeItem {
                     delay = LOG_BREAK_DELAY;
                     if (i < logs.size()) {
                         BlockPos log = logs.get(i);
-                        ToolFunctions.attemptBreak(world, log, player, EFFECTIVE_ON, EFFECTIVE_MATERIALS, fortuneLevel, silkLevel, false);
+                        AreaBreak.attemptBreak(world, log, player, EFFECTIVE_MATERIALS, EFFECTIVE_ON, false);
                         i++;
                     }
                     else {

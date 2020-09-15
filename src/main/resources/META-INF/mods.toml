@@ -1,7 +1,7 @@
 modLoader="javafml" #mandatory
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
 loaderVersion="[26,)" #mandatory (26 is current forge version)
-license="MIT License"
+license="See https://github.com/astradamus/PracticalTools/blob/master/LICENSE.txt"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
@@ -22,7 +22,7 @@ Each tool comes in iron, gold, and diamond variants. Their recipes match their v
 
 The greataxe boasts a more accurate tree detection method than I've seen in previous mods, and should never leave floating treetops.
 
-Inspired by the many mods that implement these tools in previous versions of MC, my goal was to make 1.14 a little less vanilla so mod-addicts like myself can finally explore the new features added since 1.12!
+Inspired by the many mods that implement these tools in previous versions of MC, my goal was to make 1.14+ a little less vanilla so mod-addicts like myself can finally explore the new features added since 1.12!
 
 Twitch: https://twitch.tv/neurodr0me
 Twitter: https://twitter.com/neurodr0me
