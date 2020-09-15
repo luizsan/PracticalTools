@@ -36,8 +36,7 @@ public class GreataxeItem extends AxeItem {
 
     /** Copy-pasted from AxeItem because it is private and inaccessible to children. */
     public static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(Blocks.OAK_PLANKS, Blocks.SPRUCE_PLANKS, Blocks.BIRCH_PLANKS, Blocks.JUNGLE_PLANKS, Blocks.ACACIA_PLANKS, Blocks.DARK_OAK_PLANKS, Blocks.BOOKSHELF, Blocks.OAK_WOOD, Blocks.SPRUCE_WOOD, Blocks.BIRCH_WOOD, Blocks.JUNGLE_WOOD, Blocks.ACACIA_WOOD, Blocks.DARK_OAK_WOOD, Blocks.OAK_LOG, Blocks.SPRUCE_LOG, Blocks.BIRCH_LOG, Blocks.JUNGLE_LOG, Blocks.ACACIA_LOG, Blocks.DARK_OAK_LOG, Blocks.CHEST, Blocks.PUMPKIN, Blocks.CARVED_PUMPKIN, Blocks.JACK_O_LANTERN, Blocks.MELON, Blocks.LADDER, Blocks.SCAFFOLDING, Blocks.OAK_BUTTON, Blocks.SPRUCE_BUTTON, Blocks.BIRCH_BUTTON, Blocks.JUNGLE_BUTTON, Blocks.DARK_OAK_BUTTON, Blocks.ACACIA_BUTTON, Blocks.OAK_PRESSURE_PLATE, Blocks.SPRUCE_PRESSURE_PLATE, Blocks.BIRCH_PRESSURE_PLATE, Blocks.JUNGLE_PRESSURE_PLATE, Blocks.DARK_OAK_PRESSURE_PLATE, Blocks.ACACIA_PRESSURE_PLATE);
-
-    public static final Set<Material> EFFECTIVE_MATERIALS = ImmutableSet.of(Material.WOOD, Material.GOURD, Material.CACTUS);
+    public static final Set<Material> EFFECTIVE_MATERIALS = ImmutableSet.of(Material.WOOD, Material.field_237214_y_, Material.PLANTS, Material.TALL_PLANTS, Material.BAMBOO, Material.GOURD, Material.CACTUS);
 
     public static final int LOG_BREAK_DELAY = 1;
 
@@ -84,10 +83,10 @@ public class GreataxeItem extends AxeItem {
             BlockPos candidate = candidates.get(i);
             Block block = world.getBlockState(candidate).getBlock();
 
-            if (BlockTags.LEAVES.contains(block)) {
+            if (BlockTags.LEAVES.func_230236_b_().contains(block)) {
                 leaves++;
             }
-            else if (logs.size() == 0 || BlockTags.LOGS.contains(block)) {
+            else if (logs.size() == 0 || BlockTags.LOGS.func_230236_b_().contains(block)) {
                 logs.add(candidate);
 
                 // We found a log, check for neighboring logs

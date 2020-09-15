@@ -7,7 +7,6 @@ package com.alexanderstrada.practicaltools;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -15,7 +14,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.*;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 import java.util.Set;
@@ -72,7 +73,7 @@ public class ToolFunctions {
 
         boolean validHarvest = !checkHarvestLevel || player.getHeldItemMainhand().canHarvestBlock(state);
         boolean isEffective = effectiveOn.contains(state.getBlock()) || effectiveMaterials.contains(state.getMaterial());
-        boolean witherImmune = BlockTags.WITHER_IMMUNE.contains(state.getBlock());
+        boolean witherImmune = BlockTags.WITHER_IMMUNE.func_230236_b_().contains(state.getBlock());
 
         if (validHarvest && isEffective && !witherImmune) {
             world.destroyBlock(pos, false);
@@ -80,7 +81,7 @@ public class ToolFunctions {
 
             int exp = state.getExpDrop(world, pos, fortuneLevel, silkLevel);
             if (exp > 0) {
-                state.getBlock().dropXpOnBlockBreak(world, pos, exp);
+                state.getBlock().dropXpOnBlockBreak((ServerWorld) world, pos, exp);
             }
         }
     }
@@ -89,15 +90,15 @@ public class ToolFunctions {
     public static RayTraceResult calcRayTrace(World worldIn, PlayerEntity player, RayTraceContext.FluidMode fluidMode) {
         float f = player.rotationPitch;
         float f1 = player.rotationYaw;
-        Vec3d vec3d = player.getEyePosition(1.0F);
+        Vector3d vector3d = player.getEyePosition(1.0F);
         float f2 = MathHelper.cos(-f1 * ((float)Math.PI / 180F) - (float)Math.PI);
         float f3 = MathHelper.sin(-f1 * ((float)Math.PI / 180F) - (float)Math.PI);
         float f4 = -MathHelper.cos(-f * ((float)Math.PI / 180F));
         float f5 = MathHelper.sin(-f * ((float)Math.PI / 180F));
         float f6 = f3 * f4;
         float f7 = f2 * f4;
-        double d0 = player.getAttribute(PlayerEntity.REACH_DISTANCE).getValue();;
-        Vec3d vec3d1 = vec3d.add((double)f6 * d0, (double)f5 * d0, (double)f7 * d0);
-        return worldIn.rayTraceBlocks(new RayTraceContext(vec3d, vec3d1, RayTraceContext.BlockMode.OUTLINE, fluidMode, player));
+        double d0 = player.getAttribute(net.minecraftforge.common.ForgeMod.REACH_DISTANCE.get()).getValue();;
+        Vector3d vector3d1 = vector3d.add((double)f6 * d0, (double)f5 * d0, (double)f7 * d0);
+        return worldIn.rayTraceBlocks(new RayTraceContext(vector3d, vector3d1, RayTraceContext.BlockMode.OUTLINE, fluidMode, player));
     }
 }
