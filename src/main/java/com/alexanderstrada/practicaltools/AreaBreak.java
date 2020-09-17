@@ -77,7 +77,7 @@ public class AreaBreak {
             BlockState originState = world.getBlockState(origin);
             float originHard = originState.getPlayerRelativeBlockHardness(player, world, origin);
             float targetHard = state.getPlayerRelativeBlockHardness(player, world, target);
-            if (originHard / targetHard > 5f) {
+            if (originHard / targetHard > 10f) {
                 return;
             }
         }
