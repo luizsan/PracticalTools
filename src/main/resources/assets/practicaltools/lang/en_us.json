@@ -7,12 +7,15 @@
   "item.practicaltools.iron_excavator": "Iron Excavator",
   "item.practicaltools.golden_excavator": "Golden Excavator",
   "item.practicaltools.diamond_excavator": "Diamond Excavator",
+  "item.practicaltools.netherite_excavator": "Netherite Excavator",
 
   "item.practicaltools.iron_hammer": "Iron Hammer",
   "item.practicaltools.golden_hammer": "Golden Hammer",
   "item.practicaltools.diamond_hammer": "Diamond Hammer",
+  "item.practicaltools.netherite_hammer": "Netherite Hammer",
 
   "item.practicaltools.iron_greataxe": "Iron Greataxe",
   "item.practicaltools.golden_greataxe": "Golden Greataxe",
-  "item.practicaltools.diamond_greataxe": "Diamond Greataxe"
+  "item.practicaltools.diamond_greataxe": "Diamond Greataxe",
+  "item.practicaltools.netherite_greataxe": "Netherite Greataxe"
 }

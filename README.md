@@ -2,11 +2,15 @@ Adds three tools--the excavator, the hammer, and the greataxe. These are 3x3 ver
 
 ![the tools!](demotools.png)
 
-Each tool comes in iron, gold, and diamond variants. Their recipes match their vanilla equivalents, but use blocks instead of ingots for both crafting and repair. Recipes will be added to your vanilla recipe book as you acquire the appropriate ingots.
+Each tool comes in iron, gold, and diamond variants (***and now, in 1.16, Netherite! See image below for the smithing table recipe***). Their recipes match their vanilla equivalents, but use blocks instead of ingots for both crafting and repair. Recipes will be added to your vanilla recipe book as you acquire the appropriate ingots.
 
 ![the recipes!](demorecipes.png)
 
 ![the tools!](demorepair.png)
+
+![the upgrades!](demosmithing.png)
+
+***Repairing the Netherite tools also uses Netherite Blocks, not Ingots!***
 
 The greataxe boasts a more accurate tree detection method than I've seen in previous mods, and should never leave floating treetops.
 

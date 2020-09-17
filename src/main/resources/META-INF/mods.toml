@@ -7,7 +7,7 @@ license="See https://github.com/astradamus/PracticalTools/blob/master/LICENSE.tx
 # The modid of the mod
 modId="practicaltools" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="1.16.3-1.6" #mandatory
+version="1.16.3-1.8" #mandatory
  # A display name for the mod
 displayName="Practical Tools" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
@@ -18,7 +18,7 @@ authors="astradamus" #optional
 description='''
 Adds three tools--the excavator, the hammer, and the greataxe. These are 3x3 versions of the shovel, pickaxe, and axe, respectively. The greataxe, when used on a tree, will fell the entire tree at once.
 
-Each tool comes in iron, gold, and diamond variants. Their recipes match their vanilla equivalents, but use blocks instead of ingots for both crafting and repair.
+Each tool comes in iron, gold, diamond and netherite variants. Their recipes match their vanilla equivalents, but use blocks instead of ingots for both crafting and repair.
 
 The greataxe boasts a more accurate tree detection method than I've seen in previous mods, and should never leave floating treetops.
 
