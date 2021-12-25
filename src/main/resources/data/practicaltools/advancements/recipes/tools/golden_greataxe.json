@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "practicaltools:golden_greataxe"
+      "practicaltools:golden_saw"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "practicaltools:golden_greataxe"
+        "recipe": "practicaltools:golden_saw"
       }
     }
   },

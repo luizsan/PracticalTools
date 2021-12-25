@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "practicaltools:diamond_saw"
+      "practicaltools:diamond_shears"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "practicaltools:diamond_saw"
+        "recipe": "practicaltools:diamond_shears"
       }
     }
   },

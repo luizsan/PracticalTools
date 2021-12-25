@@ -1,19 +1,13 @@
-Adds three tools--the excavator, the hammer, and the greataxe. These are 3x3 versions of the shovel, pickaxe, and axe, respectively. The greataxe, when used on a tree, will fell the entire tree at once.
+# Practical Tools (1.18.1)
 
-![the tools!](demotools.png)
+![the tools!](banner.png)
 
-Each tool comes in iron, gold, and diamond variants (***and now, in 1.16, Netherite! See image below for the smithing table recipe***). Their recipes match their vanilla equivalents, but use blocks instead of ingots for both crafting and repair. Recipes will be added to your vanilla recipe book as you acquire the appropriate ingots.
+Original repository: https://github.com/astradamus/PracticalTools
 
-![the recipes!](demorecipes.png)
+This mod adds a few stronger but more expensive versions of the vanilla tools: 
+ - **Hammer:** Can mine blocks mineable by a pickaxe in a 3x3 area.
+ - **Excavator:** Can dig blocks mineable by a shovel in a 3x3 area.
+ - **Saw:** Can cut blocks mineable by an axe in a 3x3 area. Additionally, when used on a tree, will fell the tree entirely.
+ - **Shears:** Greatly increased durability.
 
-![the tools!](demorepair.png)
-
-![the upgrades!](demosmithing.png)
-
-***Repairing the Netherite tools also uses Netherite Blocks, not Ingots!***
-
-The greataxe boasts a more accurate tree detection method than I've seen in previous mods, and should never leave floating treetops.
-
-Inspired by the many mods that implement these tools in previous versions of MC, my goal was to make 1.14 a little less vanilla so mod-addicts like myself can finally explore the new features added since 1.12!
-
-Also, here's a shameless plug for my Twitch stream :) https://twitch.tv/neurodr0me
+Each tool comes in iron, gold, diamond and netherite variants. Except for Shears, their recipes match their vanilla equivalents, but use blocks instead of ingots for both crafting and repair. Recipes will be added to your vanilla recipe book as you acquire the appropriate ingots.
