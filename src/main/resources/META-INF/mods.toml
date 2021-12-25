@@ -1,32 +1,28 @@
 modLoader="javafml" #mandatory
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
 loaderVersion="[26,)" #mandatory (26 is current forge version)
-license="See https://github.com/astradamus/PracticalTools/blob/master/LICENSE.txt"
+license="See https://github.com/luizsan/PracticalTools/blob/master/LICENSE.txt"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
 modId="practicaltools" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="1.16.3-1.8" #mandatory
+version="${file.jarVersion}" #mandatory
  # A display name for the mod
 displayName="Practical Tools" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="https://github.com/astradamus/PracticalTools/" #optional
+displayURL="https://github.com/luizsan/PracticalTools/" #optional
 # A text field displayed in the mod UI
-authors="astradamus" #optional
+authors="Luizsan & Kev!n" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Adds three tools--the excavator, the hammer, and the greataxe. These are 3x3 versions of the shovel, pickaxe, and axe, respectively. The greataxe, when used on a tree, will fell the entire tree at once.
+This mod adds a few stronger but more expensive versions of the vanilla tools: 
+ - **Hammer:** Can mine blocks mineable by a pickaxe in a 3x3 area.
+ - **Excavator:** Can dig blocks mineable by a shovel in a 3x3 area.
+ - **Saw:** Can cut blocks mineable by an axe in a 3x3 area. Additionally, when used on a tree, will fell the tree entirely.
+ - **Shears:** Greatly increased durability.
 
-Each tool comes in iron, gold, diamond and netherite variants. Their recipes match their vanilla equivalents, but use blocks instead of ingots for both crafting and repair.
-
-The greataxe boasts a more accurate tree detection method than I've seen in previous mods, and should never leave floating treetops.
-
-Inspired by the many mods that implement these tools in previous versions of MC, my goal was to make 1.14+ a little less vanilla so mod-addicts like myself can finally explore the new features added since 1.12!
-
-Twitch: https://twitch.tv/neurodr0me
-Twitter: https://twitter.com/neurodr0me
-GitHub: https://github.com/astradamus
+Each tool comes in iron, gold, diamond and netherite variants. Except for Shears, their recipes match their vanilla equivalents, but use blocks instead of ingots for both crafting and repair. Recipes will be added to your vanilla recipe book as you acquire the appropriate ingots.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.practicaltools]] #optional
@@ -44,6 +40,6 @@ GitHub: https://github.com/astradamus
 [[dependencies.practicaltools]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3]"
+    versionRange="[1.18.1]"
     ordering="NONE"
     side="BOTH"
