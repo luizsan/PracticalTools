@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "practicaltools:item/netherite_greatsword"
+  }
+}

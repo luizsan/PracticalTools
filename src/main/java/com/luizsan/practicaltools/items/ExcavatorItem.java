@@ -5,8 +5,9 @@
 
 package com.luizsan.practicaltools.items;
 
-import com.luizsan.practicaltools.AreaBreak;
+import com.luizsan.practicaltools.util.AreaBreak;
 import com.luizsan.practicaltools.ModConfig;
+import com.luizsan.practicaltools.interfaces.IAoeTool;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -26,14 +27,14 @@ public class ExcavatorItem extends ShovelItem implements IAoeTool{
 
     public final Ingredient customRepair;
 
-    protected ExcavatorItem(Tier tier, float attackDamageIn, float attackSpeedIn, Properties builder, Ingredient customRepair) {
+    public ExcavatorItem(Tier tier, float attackDamageIn, float attackSpeedIn, Properties builder, Ingredient customRepair) {
         super(tier, attackDamageIn, attackSpeedIn, builder);
         this.customRepair = customRepair;
     }
 
     @Override
     public boolean mineBlock(ItemStack stack, Level world, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        stack.hurt(ModConfig.COMMON.excavatorDuraLossMulti.get()-1, ModConfig.random, null);
+        stack.hurt(ModConfig.COMMON.excavatorUsageMultiplier.get()-1, ModConfig.random, null);
         if(entityLiving instanceof Player){
             AreaBreak.areaAttempt(this, world, pos, (Player) entityLiving, BlockTags.MINEABLE_WITH_SHOVEL, false);
         }

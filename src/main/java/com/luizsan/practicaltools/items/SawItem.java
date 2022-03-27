@@ -7,8 +7,9 @@ package com.luizsan.practicaltools.items;
 
 import java.util.ArrayList;
 
-import com.luizsan.practicaltools.AreaBreak;
+import com.luizsan.practicaltools.util.AreaBreak;
 import com.luizsan.practicaltools.ModConfig;
+import com.luizsan.practicaltools.interfaces.IAoeTool;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -33,14 +34,14 @@ public class SawItem extends AxeItem implements IAoeTool {
     public static final int LOG_BREAK_DELAY = 1;
     public final Ingredient customRepair;
 
-    protected SawItem(Tier tier, float attackDamageIn, float attackSpeedIn, Properties builder, Ingredient customRepair) {
+    public SawItem(Tier tier, float attackDamageIn, float attackSpeedIn, Properties builder, Ingredient customRepair) {
         super(tier, attackDamageIn, attackSpeedIn, builder);
         this.customRepair = customRepair;
     }
 
     @Override
     public boolean mineBlock(ItemStack stack, Level world, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        stack.hurt(ModConfig.COMMON.sawDuraLossMulti.get()-1, ModConfig.random, null);
+        stack.hurt(ModConfig.COMMON.sawUsageMultiplier.get()-1, ModConfig.random, null);
         if (entityLiving instanceof Player) {
             Player player = (Player) entityLiving;
             if (!attemptFellTree(world, pos, player)) {

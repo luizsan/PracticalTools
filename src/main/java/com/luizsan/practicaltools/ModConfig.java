@@ -21,16 +21,21 @@ public class ModConfig {
 
     public static class Common {
 
-        public final ForgeConfigSpec.IntValue hammerDuraLossMulti;
-        public final ForgeConfigSpec.IntValue sawDuraLossMulti;
-        public final ForgeConfigSpec.IntValue excavatorDuraLossMulti;
+        public final ForgeConfigSpec.IntValue excavatorUsageMultiplier;
+        public final ForgeConfigSpec.IntValue hammerUsageMultiplier;
+        public final ForgeConfigSpec.IntValue sawUsageMultiplier;
+
+        public final ForgeConfigSpec.IntValue greatswordBonusRange;
 
         public Common(ForgeConfigSpec.Builder builder) {
 
             builder.comment(" Practical Tools config \n These multipliers affect the amount of damage tools take per use.").push("common");
-            hammerDuraLossMulti = builder.defineInRange("HammerDuraLossMulti", 2, 1, Integer.MAX_VALUE);
-            sawDuraLossMulti = builder.defineInRange("SawDuraLossMulti", 3, 1, Integer.MAX_VALUE);
-            excavatorDuraLossMulti = builder.defineInRange("ExcavatorDuraLossMulti", 2, 1, Integer.MAX_VALUE);
+            excavatorUsageMultiplier = builder.defineInRange("excavator_usage_multiplier", 1, 1, Integer.MAX_VALUE);
+            hammerUsageMultiplier = builder.defineInRange("hammer_usage_multiplier", 1, 1, Integer.MAX_VALUE);
+            sawUsageMultiplier = builder.defineInRange("saw_usage_multiplier", 1, 1, Integer.MAX_VALUE);
+            
+            builder.comment(" Greatsword extra reach measured in blocks.");
+            greatswordBonusRange = builder.defineInRange("greatsword_bonus_range", 2, 1, Integer.MAX_VALUE);
             builder.pop();
         }
     }

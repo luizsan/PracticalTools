@@ -3,9 +3,9 @@
 //     https://curseforge.com/minecraft/mc-mods/practical-tools
 //     https://twitch.tv/neurodr0me
 
-package com.luizsan.practicaltools;
+package com.luizsan.practicaltools.util;
 
-import com.luizsan.practicaltools.items.IAoeTool;
+import com.luizsan.practicaltools.interfaces.IAoeTool;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

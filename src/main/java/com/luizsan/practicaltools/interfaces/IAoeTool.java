@@ -1,4 +1,4 @@
-package com.luizsan.practicaltools.items;
+package com.luizsan.practicaltools.interfaces;
 
 import javax.annotation.Nullable;
 
