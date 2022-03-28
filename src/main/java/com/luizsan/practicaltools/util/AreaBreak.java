@@ -10,7 +10,7 @@ import com.luizsan.practicaltools.interfaces.IAoeTool;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -23,7 +23,7 @@ import net.minecraftforge.common.ForgeHooks;
 public class AreaBreak {
 
     /** Attempt to break blocks around the given pos in a 3x3x1 square relative to the targeted face.*/
-    public static void areaAttempt(IAoeTool tool, Level world, BlockPos pos, Player player, Tag<Block> effectiveOn, boolean checkHarvestLevel) {
+    public static void areaAttempt(IAoeTool tool, Level world, BlockPos pos, Player player, TagKey<Block> effectiveOn, boolean checkHarvestLevel) {
         BlockHitResult block = tool.rayTraceBlocks(world, player);
 
         if(block == null) return;
@@ -50,7 +50,7 @@ public class AreaBreak {
     /** Attempt to break a block. Fails if the tool is not effective on the given block, or if the origin broken block
      * is significantly easier to break than the target block (i.e. don't let players use sandstone to quickly area
      * break obsidian).*/
-    public static void attemptBreak(Level world, BlockPos target, BlockPos origin, Player player, Tag<Block> effectiveOn, boolean checkHarvestLevel) {
+    public static void attemptBreak(Level world, BlockPos target, BlockPos origin, Player player, TagKey<Block> effectiveOn, boolean checkHarvestLevel) {
 
         BlockState targetState = world.getBlockState(target);
 
@@ -59,7 +59,8 @@ public class AreaBreak {
             return; // We are checking harvest level and this tool doesn't qualify.
         }
 
-        if (!effectiveOn.contains(targetState.getBlock())) {
+        // if (!effectiveOn.contains(targetState.getBlock())) {
+        if (!targetState.is(effectiveOn)) {
             return; // This tool is not effective on this block.
         }
 
@@ -94,7 +95,7 @@ public class AreaBreak {
     }
 
     /** Attempt to break a block. Fails if the tool is not effective on the given block.*/
-    public static void attemptBreak(Level world, BlockPos target, Player player, Tag<Block> effectiveOn, boolean checkHarvestLevel) {
+    public static void attemptBreak(Level world, BlockPos target, Player player, TagKey<Block> effectiveOn, boolean checkHarvestLevel) {
         attemptBreak(world, target, null, player, effectiveOn, checkHarvestLevel);
     }
 }

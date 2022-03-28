@@ -21,7 +21,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
+// import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.MinecraftForge;
@@ -76,12 +76,15 @@ public class SawItem extends AxeItem implements IAoeTool {
             if (logs.size() > 200) return false; 
 
             BlockPos candidate = candidates.get(i);
-            Block block = world.getBlockState(candidate).getBlock();
+            BlockState blockstate = world.getBlockState(candidate);
+            // Block block = blockstate.getBlock();
 
-            if (BlockTags.LEAVES.contains(block)) {
+            //if (BlockTags.LEAVES.contains(block)) {
+            if (blockstate.is(BlockTags.LEAVES)) {
+            //if (BlockTags.LEAVES.contains(block)) {
                 leaves++;
             }
-            else if (logs.size() == 0 || BlockTags.LOGS.contains(block)) {
+            else if (logs.size() == 0 || blockstate.is(BlockTags.LOGS)) {
                 logs.add(candidate);
 
                 // We found a log, check for neighboring logs
