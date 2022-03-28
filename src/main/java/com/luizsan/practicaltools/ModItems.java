@@ -104,7 +104,7 @@ public class ModItems {
     private static Item CreateGreatsword(Tiers tier, Item customRepair, String registryName) {
         Ingredient ingredient = Ingredient.of(customRepair);
         Item.Properties props = flagIfNetherite(new Item.Properties(), tier);
-        return new GreatswordItem(tier, 8, -3.0f, props.tab(CreativeModeTab.TAB_TOOLS), ingredient).setRegistryName(registryName);
+        return new GreatswordItem(tier, 8, -3.0f, props.tab(CreativeModeTab.TAB_COMBAT), ingredient).setRegistryName(registryName);
     }
 
     private static Item CreateHammer(Tiers tier, Item customRepair, String registryName) {
